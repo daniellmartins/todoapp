@@ -7,7 +7,7 @@ class App extends Component {
 
     this.state = { 
       description: '', 
-      todos: {}
+      todos: JSON.parse(window.localStorage.getItem('todos')) || {}
     }
 
     this._addTodo = this._addTodo.bind(this)
@@ -24,6 +24,7 @@ class App extends Component {
     if (this.state.description) {
       let todos = this.state.todos
       todos[Date.now()] = { description: this.state.description, done: false }
+      window.localStorage.setItem('todos', JSON.stringify(todos))
       this.setState({ todos, description: '' })
     }
   }
@@ -32,6 +33,7 @@ class App extends Component {
     if (this.state.todos) {
       let todos = this.state.todos
       todos[todo] = { ...todos[todo], done: true }
+      window.localStorage.setItem('todos', JSON.stringify(todos))
       this.setState({ todos })
     }
   }
@@ -40,6 +42,7 @@ class App extends Component {
     if (this.state.todos) {
       let todos = this.state.todos
       delete todos[todo]
+      window.localStorage.setItem('todos', JSON.stringify(todos))
       this.setState({ todos })
     }
   }
