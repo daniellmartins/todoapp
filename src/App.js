@@ -8,7 +8,7 @@ class App extends Component {
         <hr/>
         <div>
           <input type="text" placeholder="Ex: Comprar presente amanhã as 18h"/>
-          <button className="btn-add-todo">Adicionar</button>
+          <button className="btn-add-todo">+</button>
         </div>
         <div>
           <table>
