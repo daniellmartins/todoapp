@@ -61,7 +61,7 @@ class App extends Component {
             <tbody>
               {Object.keys(this.state.todos).map(key => (
                 <tr key={key}>
-                  <td>{this.state.todos[key].description}</td>
+                  <td className="description">{this.state.todos[key].description}</td>
                   {!this.state.todos[key].done && <td><button onClick={() => this._doneTodo(key)} className="btn-todo">&#10003;</button></td>}
                   {this.state.todos[key].done && <td><button onClick={() => this._removeTodo(key)} className="btn-todo">&#10799;</button></td>}
                 </tr>
